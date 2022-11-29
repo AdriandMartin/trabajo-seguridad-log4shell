@@ -1,0 +1,174 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{url}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+\usepackage[gen]{eurosym}
+
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{biblatex}
+\addbibresource{fuentes.bib}
+\setlength{\parindent}{0cm}
+\usepackage{amsmath, amssymb}
+\usepackage{svg}
+
+% Listados de código
+\usepackage{minted}
+\usepackage{caption}
+\newenvironment{code}{\captionsetup{type=listing}}{}
+% \SetupFloatingEnvironment{listing}{name=Source Code}
+\renewcommand{\listingscaption}{Código}
+\BeforeBeginEnvironment{minted}{\vspace{-.3cm}}
+\AfterEndEnvironment{minted}{\vspace{-.3cm}}
+
+\usepackage{csquotes}
+
+\renewcommand{\it}[1]{\textit{#1}}
+\renewcommand{\bf}[1]{\textbf{#1}}
+\renewcommand{\tt}[1]{\texttt{#1}}
+
+% Define el comando para introducir código
+ \newenvironment{codigo}[1]
+ {
+    \captionsetup{type=listing}
+    \VerbatimEnvironment
+    \begin{minted}[fontsize=\normalsize, xleftmargin=0pt, xrightmargin=0pt, frame=lines]{#1}}
+ {\end{minted}}
+
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables for horizontal lines
+\usepackage{graphicx}
+\graphicspath{{imagenes/}{../imagenes/}} % Declara dos paths, uno con respecto a este documento y otro respecto a la carpeta secciones
+
+\parskip=0.4cm % Distancia entre párrafos
+
+\usepackage[margin=3cm, headheight=17.9pt]{geometry}
+ \usepackage{fancyhdr}
+\fancyhf{}
+\lhead{\includegraphics[width=0.6cm]{Log4Shell_logo.png}}
+\fancyhead[C]{\emph{Seguridad informática -- 2021-22}}
+\rhead{\emph{Trabajo de asignatura}}
+\fancyfoot[C]{\thepage}
+
+\usepackage{subfiles} % Permite incluir ficheros .tex en el texto
+
+\usepackage{hyperref} % Hace que el índice sean hiperenlaces al documento
+
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \includegraphics[width=1 cm]{logoUZ.jpg}
+    
+    \textsc{\large Universidad de Zaragoza}
+    \rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt} % Thick horizontal rule
+    \rule{\textwidth}{0.4pt} % Thin horizontal rule
+    
+    \vfill
+    
+    {\LARGE \scshape Seguridad informática}
+                
+    \vspace{2cm}            
+
+    {\bfseries \Huge Memoria del trabajo de asignatura}
+    
+    \vspace{.5cm} 
+    
+    {\bfseries \Large Estudio de la vulnerabilidad Log4Shell}
+    
+    \vspace{3cm}    
+    
+   
+
+    {\scshape Grupo inf5\_A 1:}
+
+
+    \vspace{0.2cm}
+    
+    \large
+    \begin{tabular}{c l l}
+    \large             & Adrián Martín Marcos       & 756524 \\
+    \large             & Pablo López-Alonso Alonso       &  759836\\
+     \end{tabular}
+
+    \vfill
+    
+    \large{Zaragoza, España}
+    
+    {Curso 2020\,--\,2021}
+
+    \vfill
+
+    \includegraphics[width=5.0cm]{EINA.png}
+   
+\end{titlepage}
+
+\pagenumbering{Roman}
+
+
+\vspace*{2cm}
+\section*{\hfil Introducción \hfil}
+\addcontentsline{toc}{section}{Introducción}
+
+En este trabajo se va a estudiar la vulnerabilidad \it{Log4Shell}\cite{cve-log4shell} del la biblioteca de logging \it{Log4J} para Java, haciendo especial hincapié en las posibilidades de su explotación.
+
+% Esto es lo que dijo Simona en el correo (resume muy bien los apartados)
+La idea es estudiar la vulnerabilidad, entendiendo qué principios de desarrollo software no se han tenido en cuenta, cómo se puede explotar y las posibles contramedidas que se han tomado. Además de ello, se ha conseguido hacer ataques explotándola usando máquinas virtuales de la asignatura.
+
+En los diferentes apartado se tratará de seguir el mismo esquema que en la presentación de la vulnerabilidad \it{shellshock}. De igual forma, los objetivos marcados para este trabajo serán los mismos que en la práctica relacionada con \it{shellshock} (entender la vulnerabilidad y explotarla para obtener un \it{reverse shell}).
+
+\pagebreak
+
+\begin{spacing}{0.1}
+\tableofcontents
+\end{spacing}
+%\listoffigures
+%\listoftables
+
+\pagebreak
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\pagestyle{fancy}
+
+\subfile{secciones/1-Log4j}
+
+\clearpage{}
+\newpage
+
+\subfile{secciones/2-Log4Shell}
+
+\clearpage{}
+\newpage
+
+\subfile{secciones/3-Exploit}
+
+\clearpage{}
+\newpage
+
+\subfile{secciones/4-ReverseShell}
+
+\clearpage{}
+\newpage
+
+\subfile{secciones/5-Mitigation}
+
+\clearpage{}
+\newpage
+
+\nocite{*}
+\addcontentsline{toc}{section}{Referencias} % Añade en índice
+\printbibliography
+
+\end{document}
+
+

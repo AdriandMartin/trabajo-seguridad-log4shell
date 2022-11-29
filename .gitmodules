@@ -1,0 +1,3 @@
+[submodule "fuentes/log4j-shell-poc"]
+	path = fuentes/log4j-shell-poc
+	url = https://github.com/AdriandMartin/log4j-shell-poc

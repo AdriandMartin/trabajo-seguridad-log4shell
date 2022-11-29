@@ -1,0 +1,162 @@
+@COMMENT{%IMÁGENES}
+
+@online{cve-log4shell,
+    title={Vulnerabilidad Log4Shell recogida en el CVE},
+    url={https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228},
+    urldate={2021-01-02}
+}
+
+%------------------------------------------------------
+% Apartado 1: conceptos base
+
+@online{log4j,
+    title={Sitio web oficial de la biblioteca Log4j},
+    url={https://logging.apache.org/log4j/2.x/},
+    urldate={2021-01-02}
+}
+
+@online{log4j-lookup,
+    title={Documentación oficial sobre los lookups en Log4j},
+    url={https://logging.apache.org/log4j/2.x/manual/lookups.html},
+    urldate={2021-01-02}
+}
+
+@online{log4j-lookup-jndi,
+    title={Documentación oficial sobre los lookups relacionados con JNDI en Log4j},
+    url={https://logging.apache.org/log4j/2.x/manual/lookups.html#JndiLookup},
+    urldate={2021-01-16}
+}
+
+%------------------------------------------------------
+% Apartado 2: la vulnerabilidad
+
+@online{log4shell-noticia,
+    title={Artículo en 'The Guardian' sobre la vulnerabilidad Log4Shell},
+    url={https://www.theguardian.com/technology/2021/dec/10/software-flaw-most-critical-vulnerability-log-4-shell},
+    urldate={2021-01-16}
+}
+
+@online{log4j-vulnerabilities,
+    title={Colección de vulnerabilidades descubiertas en Log4j},
+    url={https://logging.apache.org/log4j/2.x/security.html},
+    urldate={2021-01-02}
+}
+
+@online{log4shell-cause-sophos,
+    title={Artículo de Sophos sobre el fallo de código en Log4j causante de Log4shell},
+    url={https://news.sophos.com/en-us/2021/12/17/inside-the-code-how-the-log4shell-exploit-works/},
+    urldate={2021-01-02}
+}
+
+@online{log4shell-cause-elhacker,
+    title={Artículo de un blog que recopila información sobre la causa de Log4shell},
+    url={https://blog.elhacker.net/2021/12/vulnerabilidad-critica-en-apache-log4j-java-ldap-rce-log4shell.html},
+    urldate={2021-01-02}
+}
+
+@online{cve-log4shell-2,
+    title={Segunda vulnerabilidad Log4Shell tras el parche en Log4j},
+    url={https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046},
+    urldate={2021-01-02}
+}
+
+@online{lunasec-log4shell-2,
+    title={Artículo sobre la segunda vulnerabilidad Log4Shell tras el parche en Log4j},
+    url={https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/},
+    urldate={2021-01-02}
+}
+
+@online{elhacker-log4shell-2,
+    title={Otro artículo sobre la segunda vulnerabilidad Log4Shell tras el parche en Log4j},
+    url={https://blog.elhacker.net/2021/12/identificada-una-segunda-vulnerabilidad-en-log4shell-log4j.html},
+    urldate={2021-01-02}
+}
+
+%---------------------------
+@online{scanner-cisagov,
+    title={Scanner de Log4shell de la agencia de seguridad de Estados Unidos},
+    url={https://github.com/cisagov/log4j-scanner},
+    urldate={2021-01-02}
+}
+
+@online{scanner-cisagov-original,
+    title={Proyecto original en el que se basa el scanner de Log4shell de la agencia de seguridad de Estados Unidos},
+    url={https://github.com/fullhunt/log4j-scan},
+    urldate={2021-01-02}
+}
+
+%------------------------------------------------------
+% Apartado 3: explotación
+
+@online{exploit-lunasec,
+    title={Explicación de formas de explotación de Log4shell en LunaSec},
+    url={https://www.lunasec.io/docs/blog/log4j-zero-day/},
+    urldate={2021-01-02}
+}
+
+@online{exploit-wikipedia,
+    title={Sección de Wikipedia sobre las formas de explotación de Log4shell},
+    url={https://en.wikipedia.org/wiki/Log4Shell#Behavior},
+    urldate={2021-01-02}
+}
+
+@online{exploit-log4shell-formulario,
+    title={Vídeo en el que se muestra la explotación de Log4Shell mediante un formulario web},
+    url={https://user-images.githubusercontent.com/87979263/146113359-20663eaa-555d-4d60-828d-a7f769ebd266.mp4},
+    urldate={2021-01-02}
+}
+
+%------------------------------------------------------
+% Apartado 4: reverse shell
+
+@online{vulnerable-app,
+    title={Aplicación web vulnerable a Log4shell},
+    url={https://github.com/christophetd/log4shell-vulnerable-app},
+    urldate={2021-01-02}
+}
+
+@online{exploit,
+    title={Exploit de Log4shell},
+    url={https://github.com/kozmer/log4j-shell-poc},
+    urldate={2021-01-02}
+}
+
+@online{exploit-jdk,
+    title={Versión de Java requerida por el exploit},
+    url={https://download.oracle.com/otn/java/jdk/8u20-b26/jdk-8u20-linux-x64.tar.gz},
+    urldate={2021-01-02}
+}
+
+@online{exploit-marshaller,
+    title={Marshaller de servicio LDAP usado por el exploit de Log4shell},
+    url={https://github.com/mbechler/marshalsec},
+    urldate={2021-01-02}
+}
+
+@online{exploit-fork,
+    title={Fork del exploit de Log4shell},
+    url={https://github.com/AdriandMartin/log4j-shell-poc/tree/separate-netcat-and-servers},
+    urldate={2021-01-02}
+}
+
+%------------------------------------------------------
+% Apartado 5: contramedidas
+
+@online{lunasec-log4shell-mitigation,
+    title={Artículo de LunaSec que recoje las principales contramedidas para Log4shell},
+    url={https://www.lunasec.io/docs/blog/log4j-zero-day-mitigation-guide/},
+    urldate={2021-01-02}
+}
+
+%---------------------------
+@online{autopatch,
+    title={Lanzamiento de autoparche para Log4shell},
+    url={https://www.lunasec.io/docs/blog/log4shell-live-patch/},
+    urldate={2021-01-02}
+}
+
+@online{autopatch-working,
+    title={Explicación del funcionamiento del autoparche para Log4shell},
+    url={https://www.lunasec.io/docs/blog/log4shell-live-patch-technical/},
+    urldate={2021-01-02}
+}

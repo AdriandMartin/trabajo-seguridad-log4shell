@@ -1,0 +1,27 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Conocimientos base para entender la vulnerabilidad}
+
+En esta sección se hará una breve introducción a la biblioteca \it{Log4j}, y se explicarán los conceptos fundamentales para entender la vulnerabilidad \it{Log4shell}.
+
+%--------------------------------------------------
+\subsection{La biblioteca de logging \it{Log4j}}
+
+\it{Log4j} es un framework de logging para Java \cite{log4j}. Se trata de un proyecto de la \it{Apache Software Foundation}, y durante los últimos veinte años ha sido ampliamente utilizada en proyectos de software desarrollados en ese lenguaje de programación, por lo que hoy en día puede encontrarse en todo tipo de sistemas informáticos, desde dispositivos embebidos (teléfonos móviles, routers,...) hasta servidores, pues se trata de una de las bibliotecas de logging para Java más populares.
+
+Entre las funcionalidades que implementa \it{Log4J} para el logging de eventos están los \it{lookups} \cite{log4j-lookup}, que son macros dentro del texto de los mensajes de log que se sustituyen por valores concretos en el momento en el que se registran los mensajes. Estas macros tienen la forma \it{\$\{prefix:name\}}, siendo \it{prefix} la especificación del \it{lookup} a aplicar y \it{name} la sustitución que se solicita. Por ejemplo, cuando en un mensaje de log aparece la cadena de texto '\it{\$\{java:version\}}', ésta se sustituye por la versión de la máquina virtual de Java que está ejecutando la aplicación. Otro ejemplo distinto es la macro '\it{\$\{env:USER\}}', que se sustituye con el nombre del usuario con el que se ha lanzado el proceso Java que está ejecutando la aplicación.
+
+%--------------------------------------------------
+\subsection{El API de Java \it{JNDI} para servicios de directorio}
+
+El \it{Java Naming and Directory Interface} es un API de Java que permite descubrir y buscar datos y recursos (como clases Java) a través de su nombre. Como tal consta de dos partes diferenciadas: el API en sí, que es utilizado al desarrollar aplicaciones en Java, y un SPI (\it{Service Provider Interface} o interfaz del proveedor del servicio), que permite que diferentes implementaciones del servicio de directorio puedan ser utilizadas de manera transparente.
+
+Se utiliza para crear y registrar objetos a través de un servicio de directorio para que sean accesibles por las aplicaciones, bucándolos por su nombre, de tal forma que puedan cargarlos o ejecutar operaciones sobre ellos.
+
+Como servicio de directorio o nombrado puede usarse \it{RMI}, \it{Corba}, \it{DNS}, el propio sistema de ficheros del sistema operativo, etc. También se puede usar el servicio de directorio \it{LDAP}. Este último permite la carga de clases en tiempo de ejecución simplemente indicando el nombre de la clase y la URI en la que encontrarla, todo ello a través del API \it{JNDI}.
+
+Entre los \it{lookups} que soporta \it{Log4J} en los mensajes se encuentra la sustitución de macros que involucran \it{JNDI} \cite{log4j-lookup-jndi}, y en concreto, se permite el uso de \it{LDAP} como SPI. Dicha característica fue incluida en la biblioteca en 2013, y en ella se encuentra la causa de la vulnerabilidad \it{Log4Shell}.
+
+\end{document}
